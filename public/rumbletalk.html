@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>The Pioneer - Contact</title>
+
+    <!-- update the version number as needed -->
+    <script defer src="/__/firebase/11.4.0/firebase-app-compat.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/11.4.0/firebase-auth-compat.js"></script>
+    <script defer src="/__/firebase/11.4.0/firebase-database-compat.js"></script>
+    <script defer src="/__/firebase/11.4.0/firebase-firestore-compat.js"></script>
+    <script defer src="/__/firebase/11.4.0/firebase-functions-compat.js"></script>
+    <script defer src="/__/firebase/11.4.0/firebase-messaging-compat.js"></script>
+    <script defer src="/__/firebase/11.4.0/firebase-storage-compat.js"></script>
+    <script defer src="/__/firebase/11.4.0/firebase-analytics-compat.js"></script>
+    <script defer src="/__/firebase/11.4.0/firebase-remote-config-compat.js"></script>
+    <script defer src="/__/firebase/11.4.0/firebase-performance-compat.js"></script>
+    <!-- 
+      initialize the SDK after all desired features are loaded, set useEmulator to false
+      to avoid connecting the SDK to running emulators.
+    -->
+    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+
+    <!--Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amarante&family=Meie+Script&family=Monomakh&family=Pinyon+Script&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+
+    <!--SCSS-->
+    <link rel="stylesheet" href="style.css">
+
+  </head>
+  <body>
+
+    <header>
+      <div id="lightDark" onclick="Dark()">
+        <img id="lightIcon" src="https://github.com/19SP2/The-Pioneer-resources/blob/main/light%20moon%20icon.png?raw=true" alt="light icon">
+      </div>
+
+      <div class="logo-container">
+        <a href="index.html">
+            <img id="logo" src="https://github.com/19SP2/The-Pioneer-resources/blob/main/The%20Pioneer%20logo.png?raw=true" alt="logo">
+        </a>
+      </div>
+
+      <span style="font-size:30px;cursor:pointer" onclick="openNav()">
+        <div class="search">
+          <img id="search" src="https://github.com/19SP2/The-Pioneer-resources/blob/main/menu%20light.png?raw=true" alt="search">
+        </div>
+      </span>
+
+      <div class="horizontal_line"></div>
+    </header>
+
+    <!--Nav bar-->
+    <div id="myNav" class="overlay">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <div class="overlay-content">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </div>
+
+      <div class="gallery">
+        <div class="imagesGallery">
+          <a class="image-link" href="tech.html">
+            <div class="imageG" data-label="Tech"><img src="https://github.com/19SP2/The-Pioneer-resources/blob/main/The%20Pioneer/11.png?raw=true" alt=""></div>
+          </a>
+          <a class="image-link" href="business.html">
+            <div class="imageG" data-label="Business"><img src="https://github.com/19SP2/The-Pioneer-resources/blob/main/The%20Pioneer/12.png?raw=true" alt=""></div>
+          </a>
+          <a class="image-link" href="world.html">
+            <div class="imageG" data-label="World"><img src="https://github.com/19SP2/The-Pioneer-resources/blob/main/The%20Pioneer/13.png?raw=true" alt=""></div>
+          </a>
+          <a class="image-link" href="sports.html">
+            <div class="imageG" data-label="Sports"><img src="https://github.com/19SP2/The-Pioneer-resources/blob/main/The%20Pioneer/14.png?raw=true" alt=""></div>
+          </a>
+          <a class="image-link" href="entertain.html">
+            <div class="imageG" data-label="Entertainment"><img src="https://github.com/19SP2/The-Pioneer-resources/blob/main/The%20Pioneer/15.png?raw=true" alt=""></div>
+          </a>
+          <a class="image-link" href="rumbletalk.html">
+            <div class="imageG" data-label="Chat"><img src="https://github.com/19SP2/The-Pioneer-resources/blob/main/chat.png?raw=true" alt=""></div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!--Nav ribbon under logo-->
+    <nav>
+      <li class="nav-list">
+        <ul><a href="index.html">Home</a></ul>
+        <ul><a href="tech.html">Tech</a></ul>
+        <ul><a href="business.html">Business</a></ul>
+        <ul><a href="world.html">World</a></ul>
+        <ul><a href="sports.html">Sports</a></ul>
+        <ul><a href="entertain.html">Entertainment</a></ul>
+        <ul><a id="nav-selected" href="rumbletalk.html">Chat</a></ul>
+      </li>
+      <div class="horizontal_line"></div>
+    </nav>
+    
+    <div class="sub-heading">
+      <h1>Chat</h1>
+    </div>
+
+    <div class="whatis">
+        <p><strong>Chat Guidelines:</strong> This chat room is intended solely for discussions about news and current events. 
+  Any violent, illegal, or inappropriate conversations are strictly prohibited and will be moderated.</p>
+    </div>
+
+  <iframe 
+    class="chat-container"
+    src="https://rumbletalk.com/client/chat.php?3M3EtKAd" 
+    width="100%" 
+    height="600" 
+    frameborder="0" 
+    allowfullscreen>
+  </iframe>
+
+    <footer>
+      <div>
+      <div class="logo-container footer">
+        <a href="index.html">
+            <img id="logo2" src="https://github.com/19SP2/The-Pioneer-resources/blob/main/dark%20logo%20fit.png?raw=true" alt="logo">
+        </a>
+      </div>
+
+      <div class="footerblock">
+        <li class="nav-list1">
+          <ul class="highl" >News</ul>
+          <ul><a href="tech.html">Tech</a></ul>
+          <ul><a href="business.html">Business</a></ul>
+          <ul><a href="world.html">World</a></ul>
+          <ul><a href="sports.html">Sports</a></ul>
+          <ul><a href="entertain.html">Entertainment</a></ul>
+          <ul><a href="rumbletalk.html">Chat</a></ul>
+        </li>
+  
+        <li class="nav-list2">
+          <ul class="highl">Resources</ul>
+          <ul><a href="index.html">Home</a></ul>
+          <ul><a href="about.html">About</a></ul>
+          <ul><a href="contact.html">Contact</a></ul>
+        </li>
+      </div>
+      </div>
+      
+      <div class="legal-links">
+        <a href="#" class="legal-link" onclick="openModal('privacyModal')">Privacy Policy</a>
+        <a href="#" class="legal-link" onclick="openModal('termsModal')">Terms of Service</a>
+      </div>
+    </footer>
+
+    <div id="privacyModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2>Privacy Policy</h2>
+            <span class="close" onclick="closeModal('privacyModal')">&times;</span>
+        </div>
+        <div class="modal-body">
+            <p>
+                Your privacy is important to us. This website collects minimal personal information and only uses data required for basic functionality, such as Google sign-in authentication. We do not sell, rent, or share your data with third parties.
+            </p>
+            
+            <h3>Data Collection</h3>
+            <p>
+                This website may use free third-party APIs (such as news, weather, or finance APIs) to display real-time content. We do not store this information, and it is used strictly for display purposes.
+            </p>
+            
+            <h3>Third-Party Services</h3>
+            <p>
+                Any data collected is subject to the policies of those APIs and Google authentication services. By using this website, you agree to their terms as well.
+            </p>
+            
+            <h3>Contact Information</h3>
+            <p>
+                If you have any questions about this Privacy Policy, please contact us through our contact page.
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- Terms of Service Modal -->
+<div id="termsModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2>Terms of Service</h2>
+            <span class="close" onclick="closeModal('termsModal')">&times;</span>
+        </div>
+        <div class="modal-body">
+            <p>
+                By accessing and using this website, you agree to the following terms and conditions:
+            </p>
+            
+            <h3>Acceptable Use</h3>
+            <ul>
+                <li>You will use this site for lawful purposes only.</li>
+                <li>You will not post or share any offensive, violent, illegal, or inappropriate content in any interactive features (such as chat or comments).</li>
+                <li>You will not attempt to harm, disrupt, or interfere with the website's functionality.</li>
+            </ul>
+            
+            <h3>Site Administration</h3>
+            <p>
+                The site owner reserves the right to restrict access if any misuse is detected. We may modify, suspend, or discontinue any aspect of the service at any time.
+            </p>
+            
+            <h3>Disclaimers</h3>
+            <p>
+                This site is offered "as-is" without warranties. Information shown may be from third-party APIs and should be verified independently. We are not responsible for the accuracy or reliability of third-party content.
+            </p>
+            
+            <h3>Changes to Terms</h3>
+            <p>
+                These policies may be updated from time to time. Continued use of the website after changes constitutes acceptance of the new terms.
+            </p>
+        </div>
+    </div>
+</div>
+
+    <script src="main.js"></script>
+  </body>
+</html>
