@@ -10,11 +10,8 @@ const firebaseConfig = {
   };
 
 firebase.initializeApp(firebaseConfig);
-
 var contactFormDB = firebase.database().ref('pioneer')
-
 document.getElementById('contactForm').addEventListener('submit', submitForm);
-
 function submitForm(e) {
     e.preventDefault();
 

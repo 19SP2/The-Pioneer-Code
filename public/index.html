@@ -27,6 +27,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Amarante&family=Meie+Script&family=Monomakh&family=Pinyon+Script&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="https://github.com/19SP2/The-Pioneer-resources/blob/main/The%20Pioneer.png?raw=true">
 
     <!--SCSS-->
     <link rel="stylesheet" href="style.css">
@@ -89,7 +90,7 @@
     </div>
 
     <!--Nav ribbon under logo-->
-    <nav>
+    <nav id="nav-lists">
       <li class="nav-list">
         <ul><a id="nav-selected" href="index.html">Home</a></ul>
         <ul><a href="tech.html">Tech</a></ul>
@@ -154,7 +155,7 @@
         <section id="ad">
           <h4>Subscribe now to receive the latest news directly in your inbox!</h4> <br>
           Be the first to know about the hottest updates, trends, and more. Don't miss out!
-          
+          <br>
           <button id="subsbtn" onclick="googleLogin()">Subscribe</button>
         </section>
 
@@ -171,6 +172,7 @@
     </div>
     <button id="save-btn-news-url2" onclick="saveOtherNews('news-url2')">Save Article</button>
   </div>
+  <div id="secondType" class="horizontal_line"></div>
 
   <div class="headlines" >
     <div id="news-url3">
@@ -180,8 +182,8 @@
     </div>
     <button id="save-btn-news-url3" onclick="saveOtherNews('news-url3')">Save Article</button>
   </div>
-
-  <div class="headlines" id="news-url4">
+<div id="secondType" class="horizontal_line"></div>
+  <div class="headlines">
     <div id="news-url4">
     <h3 id="sname4"></h3>
     <h1 class="white" id="title4"></h1>
@@ -216,6 +218,7 @@
           <ul><a href="index.html">Home</a></ul>
           <ul><a href="about.html">About</a></ul>
           <ul><a href="contact.html">Contact</a></ul>
+          <ul><a href="user.html">Account</a></ul>
         </li>
       </div>
       </div>

@@ -23,7 +23,6 @@ function googleLogin() {
     .catch(console.log);
 }
 
-
 // Toggle the 'selected' class on the clicked button
 function toggleSelected(button) {
     const allButtons = document.querySelectorAll('.option');
@@ -610,11 +609,6 @@ window.onload = function() {
     firstButton.click(); //News data
 }; // REMOVE HERE
 
-window.addEventListener("DOMContentLoaded", () => {
-    headNews("technology");
-});
-
-
 // Call the function for weather data
 getWeatherData();
 Home() 
@@ -689,7 +683,7 @@ async function newsCallCat(Ncategory, x, nurl, nimg, title, descpt, date, sname)
         let data = await response.json();
         let articles = data.articles;
 
-        // Display the articles (you can replace this with your actual display logic)
+        // Display the articles 
         for (i = x; i < articles.length; i++) {
 
             const urlContainer = document.getElementById(nurl);
@@ -751,13 +745,13 @@ function openModal(modalId) {
         document.body.style.overflow = 'hidden'; // Prevent background scrolling
     }
 
-    function closeModal(modalId) {
+function closeModal(modalId) {
         document.getElementById(modalId).style.display = 'none';
         document.body.style.overflow = 'auto'; // Restore scrolling
-    }
+}
 
     // Close modal when clicking outside of it
-    window.onclick = function(event) {
+window.onclick = function(event) {
         const modals = document.querySelectorAll('.modal');
         modals.forEach(modal => {
             if (event.target === modal) {
@@ -765,10 +759,10 @@ function openModal(modalId) {
                 document.body.style.overflow = 'auto';
             }
         });
-    }
+}
 
     // Close modal with Escape key
-    document.addEventListener('keydown', function(event) {
+document.addEventListener('keydown', function(event) {
         if (event.key === 'Escape') {
             const modals = document.querySelectorAll('.modal');
             modals.forEach(modal => {
@@ -778,7 +772,7 @@ function openModal(modalId) {
                 }
             });
         }
-    });
+});
 
 // Store all articles for saving
 // Global variable to store the currently displayed article
@@ -928,6 +922,8 @@ async function saveNews() {
 
         // Success feedback
         saveButton.textContent = 'Saved!';
+        saveButton.style.color = '#ffffff';
+            saveButton.classList.add('body-font');
         saveButton.style.backgroundColor = '#4CAF50';
     
 
@@ -939,6 +935,8 @@ async function saveNews() {
         const saveButton = document.getElementById('save-news-btn');
         saveButton.disabled = false;
         saveButton.textContent = 'Save Failed';
+        saveButton.style.color = '#ffffff';
+            saveButton.classList.add('body-font');
         saveButton.style.backgroundColor = '#f44336';
 
         
@@ -952,12 +950,7 @@ async function updateSaveButtonState() {
     if (!saveButton || !currentArticle) return;
 
     const user = firebase.auth().currentUser;
-    if (!user) {
-        saveButton.textContent = 'Login to Save';
-        saveButton.disabled = true;
-        saveButton.style.backgroundColor = '#ff9800'; // optional orange for login prompt
-        return;
-    }
+    
 
     try {
         const userId = user.uid;
@@ -972,35 +965,29 @@ async function updateSaveButtonState() {
         if (doc.exists) {
             // Show as permanently saved
             saveButton.textContent = 'Saved!';
+            saveButton.style.color = '#ffffff';
+            saveButton.classList.add('body-font');
             saveButton.disabled = true;
             saveButton.style.backgroundColor = '#4CAF50';
         } else {
             saveButton.textContent = 'Save Article';
+            saveButton.classList.add('body-font');
+            saveButton.classList.add('white');
             saveButton.disabled = false;
             saveButton.style.backgroundColor = '';
         }
     } catch (error) {
         console.error('Error checking save status:', error);
         saveButton.textContent = 'Save Article';
+        saveButton.classList.add('body-font');
+        saveButton.classList.add('white');
         saveButton.disabled = false;
         saveButton.style.backgroundColor = '';
     }
 }
 
-// Listen for auth state changes to update save button
-
-
 // Function to toggle selected state for category buttons
-function toggleSelected(clickedButton) {
-    // Remove selected class from all buttons
-    const buttons = document.querySelectorAll('.option');
-    buttons.forEach(button => {
-        button.classList.remove('default-option');
-    });
-    
-    // Add selected class to clicked button
-    clickedButton.classList.add('default-option');
-}
+
 
 async function saveOtherNews(containerId) {
     const container = document.getElementById(containerId);
@@ -1018,9 +1005,7 @@ async function saveOtherNews(containerId) {
     // Check user authentication
     const user = firebase.auth().currentUser;
     if (!user) {
-        saveButton.textContent = 'Login to Save';
-        saveButton.disabled = true;
-        saveButton.style.backgroundColor = '#ff9800';
+        alert('Please log in to save articles!');
         return;
     }
 
@@ -1073,11 +1058,15 @@ async function saveOtherNews(containerId) {
             // Update existing article
             await articleRef.update(articleData);
             saveButton.textContent = 'Updated!';
+            saveButton.style.color = '#ffffff';
+            saveButton.classList.add('body-font');
             saveButton.style.backgroundColor = '#2196F3'; // blue for update
         } else {
             // Save new article
             await articleRef.set(articleData);
             saveButton.textContent = 'Saved!';
+            saveButton.style.color = '#ffffff';
+            saveButton.classList.add('body-font');
             saveButton.style.backgroundColor = '#4CAF50'; // green for new save
         }
 
@@ -1087,6 +1076,7 @@ async function saveOtherNews(containerId) {
     } catch (error) {
         console.error(`Error saving/updating article '${containerId}':`, error);
         saveButton.textContent = 'Save Failed';
+        saveButton.classList.add('body-font');
         saveButton.style.backgroundColor = '#f44336';
         saveButton.disabled = false;
         alert('Failed to save or update article. Please try again.');
@@ -1118,10 +1108,13 @@ async function checkSavedArticlesOnLogin() {
             const doc = await db.collection('users').doc(userId).collection('savedArticles').doc(articleId).get();
             if (doc.exists) {
                 saveButton.textContent = 'Saved!';
+                saveButton.classList.add('body-font');
                 saveButton.disabled = true;
                 saveButton.style.backgroundColor = '#4CAF50';
             } else {
                 saveButton.textContent = 'Save Article';
+                saveButton.classList.add('body-font');
+                saveButton.classList.add('white');
                 saveButton.disabled = false;
                 saveButton.style.backgroundColor = '';
             }
@@ -1137,4 +1130,3 @@ firebase.auth().onAuthStateChanged(user => {
         checkSavedArticlesOnLogin(); // Check all visible articles
     }
 });
-

@@ -4,6 +4,10 @@
     padding: 0;
 }
 
+#secondType{
+    display: none;
+}
+
 $primary-color: black;  
 $secondary-color: white; 
 $accent-color: lightgrey; 
@@ -33,10 +37,15 @@ body{
     font-size: clamp(0.7rem, 0.05rem + 5vw, 1rem);
 }
 
+.body-font {
+  @include body-font;
+}
+
 button{
     border: none;
     background: none;
     cursor: pointer;
+    @include body-font()
 }
 
 a{
@@ -56,6 +65,7 @@ header {
     padding-top: clamp(2px, 1px + 10vw, 15px);
     #lightDark {
         float: left;
+        z-index: 100000000;
         transform: translateY(30%);
         img {
             width: 30px;
@@ -1105,4 +1115,385 @@ iframe{
     }
     .container .card:nth-of-type(4) {
   background: linear-gradient(135deg, #2e2e2e 0%, #1a1a1a 50%, #555555 100%);}
+  button{
+    color: white;
+  }
+}
+
+.overlay {
+  height: 0%;
+  width: 100%;
+  position: fixed;
+  z-index: 10000001;
+  top: 0;
+  left: 0;
+  background-color: $primary-color;
+  overflow-y: hidden;
+  transition: 0.5s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#nav-selected {
+  color: $secondary-color;
+}
+
+.overlay a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: clamp(1rem, 2vw, 2.25rem);
+  color: $fade-color;
+  display: block;
+  transition: 0.3s;
+
+  &:hover {
+    cursor: pointer;
+    color: red;
+  }
+}
+
+.overlay .closebtn {
+  position: absolute;
+  top: 2%;
+  right: clamp(25px, 8vw, 65px);
+  font-size: clamp(40px, 8vw, 60px);
+  z-index: 1000000000;
+}
+
+.overlay-content {
+  display: flex;
+  align-items: center;
+  margin-top: clamp(8vh, 12vh, 15vh);
+  gap: 0.5rem;
+  padding-bottom: 10%;
+}
+
+// Gallery appears below navigation links
+.gallery {
+  margin-top: clamp(2rem, 5vh, 4rem);
+  width: 90%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 5%;
+
+  .imagesGallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: clamp(0.8rem, 2vw, 1.5rem);
+    padding: 1rem;
+    width: 100%;
+  }
+
+  .image-link {
+    flex: 0 1 auto;
+  }
+
+  .imageG {
+    width: clamp(80px, 15vw, 150px);
+    position: relative;
+
+    img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      transition: transform 0.2s ease;
+    }
+
+    &:hover img {
+      transform: scale(1.05);
+    }
+  }
+}
+
+// Responsive Design
+// For very wide screens
+@media screen and (min-width: 1200px) {
+  .gallery {
+    .imagesGallery {
+      max-width: 900px;
+      gap: 2rem;
+    }
+
+    .imageG {
+      width: clamp(120px, 12vw, 160px);
+    }
+  }
+  .footerblock{
+    padding-bottom: 15%;
+}
+}
+
+@media screen and (max-width: 990px) {
+    #wholeBlock{
+        display: block;
+    }
+    #news{
+        width: 100%;
+    }
+    #Block2{
+        width: 100%;
+    }
+    #addData{
+        display: flex;
+    }
+    #second-sec{
+        display: block;
+    }
+    #secondType{
+        display: block;
+        border-bottom: 1px solid $accent-color;
+        margin-top: clamp(2px, 1px + 10vw, 15px);
+        margin-bottom: clamp(2px, 1px + 10vw, 15px);
+    }
+    #newsBlocks {
+        width: 100%;
+        display: block;
+    }
+    .container .card{
+        width: 100%;
+    }
+    input[type=radio]:checked + label{
+        width: 100%;
+        min-height: 700px;
+    }
+    .wrapper{
+        width: 70%;
+        
+    }
+    .card .row{
+        display: block;
+    }
+}
+
+@media screen and (max-width: 768px) {
+  .overlay-content {
+    margin-top: clamp(6vh, 10vh, 12vh);
+    gap: 1rem;
+  }
+
+  .gallery {
+    margin-top: clamp(1.5rem, 4vh, 3rem);
+
+    .imagesGallery {
+      gap: clamp(0.6rem, 1.5vw, 1.2rem);
+    }
+
+    .imageG {
+      width: clamp(70px, 18vw, 120px);
+    }
+  }
+  #nav-lists{
+    display: none;
+  }
+  .footerblock{
+    padding-bottom: 15%;
+    gap: 5px;
+}
+  .nav-list2 .highl , .nav-list1 .highl{
+    font-size: 10px;
+  }
+  .nav-list2 a, .nav-list1 a{
+    font-size: 13px;
+  }
+   footer #logo2{
+    width: 60%;
+   }
+   footer{
+    padding-bottom: 20%;
+   }
+   #weather :not(#city), #stock-data :not(#symbol){
+        font-size:13px;
+    }
+}
+
+// Very small mobile screens
+@media screen and (max-width: 600px) {
+    .logo-container{
+        float: left;
+        position: absolute;
+    }
+    #lightDark{
+        position: absolute;
+        right: 0;
+        margin-right: 9%;
+    }
+    #search{
+        position: absolute;
+        right: 0;
+        margin-top: 9px;
+    }
+    header .horizontal_line{
+        padding-bottom: 7%;
+    }
+    #weather :not(#city), #stock-data :not(#symbol){
+        font-size:13px;
+    }
+    footer{
+    padding-bottom: 20%;
+   }
+   .nav-list2 .highl , .nav-list1 .highl{
+    font-size: 10px;
+    padding-left: 60%;
+    margin-top: 65px;
+  }
+
+  .nav-list2 a, .nav-list1 a{
+    font-size: 13px;
+    padding-left: 60%;
+    
+  }
+}
+
+// For very short viewports
+@media screen and (max-height: 500px) {
+  .overlay {
+    overflow-y: auto;
+  }
+
+  .overlay-content {
+    margin-top: 5vh;
+    gap: 0.5rem;
+  }
+
+  .overlay a {
+    font-size: clamp(16px, 3vw, 20px);
+    padding: 4px;
+  }
+
+  .overlay .closebtn {
+    top: 10px;
+    font-size: clamp(32px, 6vw, 40px);
+  }
+
+  .gallery {
+    margin-top: 1rem;
+
+    .imagesGallery {
+      gap: 0.5rem;
+      padding: 0.5rem;
+    }
+
+    .imageG {
+      width: clamp(60px, 18vw, 90px);
+    }
+  }
+  
+}
+
+@media screen and (max-width: 480px) {
+  .overlay-content {
+    margin-top: 100px;
+    gap: 0.1rem;
+  }
+
+  .overlay a{
+    height: 90px;
+    font-size: 17px;
+  }
+
+  .gallery {
+    margin-top: clamp(1rem, 3vh, 2rem);
+    width: 95%;
+    padding-top:15%;
+
+    .imagesGallery {
+      gap: clamp(0.5rem, 1vw, 0.8rem);
+      padding: 0.5rem;
+    }
+
+    .imageG {
+      width: clamp(65px, 20vw, 100px);
+    }
+
+  }
+  .footerblock{
+    padding-bottom: 20%;
+    gap: 5px;
+  }
+  .nav-list2 .highl , .nav-list1 .highl{
+    font-size: 10px;
+    padding-left: 60%;
+    margin-top: 65px;
+  }
+
+  .nav-list2 a, .nav-list1 a{
+    font-size: 13px;
+    padding-left: 60%;
+    
+  }
+   footer #logo2{
+    width: 80%;
+   }
+   footer{
+    padding-bottom: 20%;
+   }
+   .logo-container #logo{
+        width: 60%;
+        margin: 0;
+    }
+    #lightDark{
+        position: absolute;
+        right: 0;
+        margin-right: 12%;
+    }
+    #search{
+        position: absolute;
+        right: 0;
+        margin-top: 9px;
+    }
+    header .horizontal_line{
+        padding-bottom: 10%;
+    }
+    body{
+        margin: 20px;
+    }
+    #weather :not(#city), #stock-data :not(#symbol){
+        font-size:15px;
+    }
+    #wholeBlock{
+        display: block;
+    }
+    #news{
+        width: 100%;
+        #options{
+            font-size: small;
+            padding-inline: 5px;
+        }
+    }
+    #Block2{
+        width: 100%;
+    }
+    #addData{
+        display: flex;
+    }
+    #second-sec{
+        display: block;
+    }
+    #secondType{
+        display: block;
+        border-bottom: 1px solid $accent-color;
+        margin-top: clamp(2px, 1px + 10vw, 15px);
+        margin-bottom: clamp(2px, 1px + 10vw, 15px);
+    }
+    #newsBlocks {
+        width: 100%;
+        display: block;
+    }
+    .container .card{
+        width: 100%;
+    }
+    input[type=radio]:checked + label{
+        width: 100%;
+        min-height: 700px;
+    }
+    .wrapper{
+        width: 70%;
+    }
+    .card .row{
+        display: block;
+    }
 }

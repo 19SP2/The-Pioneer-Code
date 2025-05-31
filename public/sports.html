@@ -28,6 +28,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Amarante&family=Meie+Script&family=Monomakh&family=Pinyon+Script&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
 
+    <link rel="icon" type="image/x-icon" href="https://github.com/19SP2/The-Pioneer-resources/blob/main/The%20Pioneer.png?raw=true">
     <!--SCSS-->
     <link rel="stylesheet" href="style.css">
 
@@ -60,6 +61,7 @@
           <a href="index.html">Home</a>
           <a href="about.html">About</a>
           <a href="contact.html">Contact</a>
+          <a href="user.html">Account</a>
         </div>
   
         <div class="gallery">
@@ -86,7 +88,7 @@
       </div>
     </div>
   
-    <nav>
+    <nav id="nav-lists">
           <li class="nav-list">
             <ul><a href="index.html">Home</a></ul>
             <ul><a href="tech.html">Tech</a></ul>
@@ -109,11 +111,12 @@
             <button id="options" class="option default-option hide" onclick="headNews('sports'), toggleSelected(this)">Tech</button>
       
             <div id="news-url"> 
-              <div id="news-img"></div> <!--image container-->
-              <h1 id="title"></h1>
-              <h2 id="descpt"></h2>
-              <h3 id="date"></h3>
-            </div> 
+          <div id="news-img"></div> <!--image container-->
+          <h1 id="title"></h1>
+          <h2 id="descpt"></h2>
+          <h3 id="date"></h3>
+        </div>  
+        <button id="save-news-btn" onclick="saveNews()">Save Article</button>
             
         </section> 
   
@@ -155,53 +158,69 @@
     <div id="linedot"></div>
 
     <section id="newsBlocks">
-      <div class="block50" id="sports-news-url1">
+      <div class="block50">
+        <div id="sports-news-url1">
         <div  id="sports-news-img1"></div> <!--image container-->
         <h1 class="white" id="sports-title1"></h1>
         <h2 class="white" id="sports-descpt1"></h2>
         <h3 class="float" id="sports-sname1"></h3>
         <h3 class="date" id="sports-date1"></h3>
-        
+        </div>
+        <button id="save-btn-sports-news-url1" onclick="saveOtherNews('sports-news-url1')">Save Article</button>
       </div>  
+      <div id="secondType" class="horizontal_line"></div>
 
-      <div class="block50" id="sports-news-url2">
+      <div class="block50">
+        <div id="sports-news-url2">
         <div id="sports-news-img2"></div> <!--image container-->
         <h1 class="white" id="sports-title2"></h1>
         <h2 class="white" id="sports-descpt2"></h2>
         <h3 class="float" id="sports-sname2"></h3>
         <h3 class="date" id="sports-date2"></h3>
-        
+        </div>
+        <button id="save-btn-sports-news-url2" onclick="saveOtherNews('sports-news-url2')">Save Article</button>
       </div>  
-
-      <div class="block50" id="sports-news-url3">
+<div id="secondType" class="horizontal_line"></div>
+      <div class="block50">
+        <div id="sports-news-url3">
         <div id="sports-news-img3"></div> <!--image container-->
         <h1 class="white" id="sports-title3"></h1>
         <h2 class="white" id="sports-descpt3"></h2>
         <h3 class="float" id="sports-sname3"></h3>
         <h3 class="date" id="sports-date3"></h3>
-        
+        </div>
+        <button id="save-btn-sports-news-url3" onclick="saveOtherNews('sports-news-url3')">Save Article</button>
       </div>  
     </section>
 
     <div id="linedot"></div>
     <section id="second-sec"> <!--section for displaying news-->
       
-      <div class="headlines" id="sports-news-url4">
+      <div class="headlines">
+        <div id="sports-news-url4">
         <h3 class="red" id="sports-sname4"></h3>
         <h1 class="white" id="sports-title4"></h1>
-        <h3 class="date" id="sports-date4"></h3>        
+        <h3 class="date" id="sports-date4"></h3>     
+        </div>   
+        <button id="save-btn-sports-news-url4" onclick="saveOtherNews('sports-news-url4')">Save Article</button>
       </div>  
-
-      <div class="headlines" id="sports-news-url5">
+<div id="secondType" class="horizontal_line"></div>
+      <div class="headlines">
+        <div id="sports-news-url5">
         <h3 class="red" id="sports-sname5"></h3>
         <h1 class="white" id="sports-title5"></h1>
-        <h3 class="date" id="sports-date5"></h3>        
+        <h3 class="date" id="sports-date5"></h3>     
+        </div>   
+        <button id="save-btn-sports-news-url5" onclick="saveOtherNews('sports-news-url5')">Save Article</button>
       </div>  
-
-      <div class="headlines" id="sports-news-url6">
+<div id="secondType" class="horizontal_line"></div>
+      <div class="headlines">
+        <div id="sports-news-url6">
         <h3 class="red" id="sports-sname6"></h3>
         <h1 class="white" id="sports-title6"></h1>
         <h3 class="date" id="sports-date6"></h3>
+        </div>
+        <button id="save-btn-sports-news-url6" onclick="saveOtherNews('sports-news-url6')">Save Article</button>
       </div>  
       
     </section> <!--then footer-->
@@ -230,6 +249,7 @@
           <ul><a href="index.html">Home</a></ul>
           <ul><a href="about.html">About</a></ul>
           <ul><a href="contact.html">Contact</a></ul>
+          <ul><a href="user.html">Account</a></ul>
         </li>
       </div>
       </div>
